@@ -1,7 +1,7 @@
 
 import motor.motor_asyncio
 
-from app.config import config
+from config import config
 
 _connection_uri = config['MONGO_CONNECTION_URI']
 
