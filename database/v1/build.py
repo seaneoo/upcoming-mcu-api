@@ -78,10 +78,10 @@ def parse_series(item: Series) -> list[Production]:
         productions.append({
             'id': item['id'],
             'title': f'{item["name"]} Season {season["season_number"]}' if item['number_of_seasons'] > 1 else item['name'],
-            'overview': season['overview'],
+            'overview': season['overview'] if season['overview'] else item['overview'],
             'release_date': season['air_date'],
             'type': 'tv',
-            'poster': season['poster_path']
+            'poster': season['poster_path'] if season['poster_path'] is not None else item['poster_path']
         })
     return productions
 
