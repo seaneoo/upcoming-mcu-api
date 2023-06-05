@@ -1,6 +1,6 @@
 import random
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from slowapi import _rate_limit_exceeded_handler
@@ -32,7 +32,7 @@ app.include_router(v1.router)
 
 @app.get('/')
 @limiter.limit(RATE_LIMIT)
-async def root():
+async def root(request: Request):
     quotes = ["I love you 3000.", "I am Iron Man.",
               "Avengers...assemble.", "I am Groot.", "Hail Hydra."]
     return JSONResponse(random.choice(quotes), media_type='text/plain')
