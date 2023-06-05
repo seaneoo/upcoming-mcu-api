@@ -36,6 +36,6 @@ async def get_all_productions(request: Request):
 @router.get('/{id}', response_model=ProductionResults)
 @limiter.limit(RATE_LIMIT)
 async def get_production(request: Request, id: str):
-    if (production := await collection.find({'tmdbId': id}).sort('release_date').to_list(1000)) is not None:
+    if (production := await collection.find({'id': int(id)}).sort('release_date').to_list(1000)) is not None:
         return {"count": len(production), "results": production}
     raise HTTPException(status_code=HTTPStatus.NOT_FOUND)

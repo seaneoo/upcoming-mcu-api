@@ -21,12 +21,12 @@ class PyObjectId(ObjectId):
 
 
 class Production(BaseModel):
-    tmdbId: str = Field(default=None, alias="id")
+    id: str = Field(default=None)
     title: str = Field(default=None)
     overview: str = Field(default=None)
     release_date: str = Field(default=None)
-    media_type: str = Field(default=None)
-    poster_path: str = Field(default=None)
+    type: str = Field(default=None)
+    poster: str = Field(default=None)
 
     class Config:
         allow_population_by_field_name = True
@@ -38,8 +38,8 @@ class Production(BaseModel):
                 "title": "Avengers: Endgame",
                 "overview": "After the devastating events of Avengers: Infinity War...",
                 "release_date": "2019-04-26",
-                "media_type": "movie",
-                "poster_path": "or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+                "type": "movie",
+                "poster": "or06FN3Dka5tukK1e9sl16pB3iy.jpg",
             }
         }
 
@@ -57,8 +57,8 @@ class ProductionResults(BaseModel):
                     "title": "Avengers: Endgame",
                     "overview": "After the devastating events of Avengers: Infinity War...",
                     "release_date": "2019-04-26",
-                    "media_type": "movie",
-                    "poster_path": "or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+                    "type": "movie",
+                    "poster": "or06FN3Dka5tukK1e9sl16pB3iy.jpg",
                 }]
             }
         }
