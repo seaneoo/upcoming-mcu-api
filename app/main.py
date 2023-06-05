@@ -13,12 +13,11 @@ from app.router import v1
 
 app = FastAPI()
 
-origins = [""]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'],
     allow_credentials=True,
-    allow_methods=['*'],
+    allow_methods=['GET'],
     allow_headers=['*'])
 app.state.limiter = limiter
 
