@@ -9,7 +9,12 @@ from app.errors import (exception_handler, http_exception_handler,
 from app.limiter import limiter
 from app.router import v1
 
-app = FastAPI()
+app = FastAPI(title="Upcoming MCU API",
+              description="""The timeline of the upcoming releases in the Marvel Cinematic Universe.
+              This product uses the TMDB API but is not endorsed or certified by TMDB.""",
+              version=1.0,
+              contact={"email": "so@seano.dev"},
+              license_info={"name": "Creative Commons Zero v1.0 Universal", "url": "https://github.com/seaneoo/upcoming-mcu-api/blob/main/LICENSE"})
 
 app.add_middleware(
     CORSMiddleware,
